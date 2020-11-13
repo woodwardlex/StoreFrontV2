@@ -1,7 +1,5 @@
-﻿using Microsoft.Owin;
-using Owin;
+﻿using Owin;
 
-[assembly: OwinStartupAttribute(typeof(StoreFrontV2.UI.MVC.Startup))]
 namespace StoreFrontV2.UI.MVC
 {
     public partial class Startup
