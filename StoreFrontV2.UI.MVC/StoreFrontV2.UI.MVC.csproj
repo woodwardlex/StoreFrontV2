@@ -183,16 +183,130 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\pricing.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\Custom.css" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\images\img_bg_1.jpg" />
+    <Content Include="Content\images\img_bg_2.jpg" />
+    <Content Include="Content\images\img_bg_3.jpg" />
+    <Content Include="Content\images\img_bg_4.jpg" />
+    <Content Include="Content\images\loader.gif" />
+    <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\person1.jpg" />
+    <Content Include="Content\images\person2.jpg" />
+    <Content Include="Content\images\person3.jpg" />
+    <Content Include="Content\images\project-1.jpg" />
+    <Content Include="Content\images\project-2.jpg" />
+    <Content Include="Content\images\project-3.jpg" />
+    <Content Include="Content\images\project-4.jpg" />
+    <Content Include="Content\images\project-5.jpg" />
+    <Content Include="Content\images\project-6.jpg" />
+    <Content Include="Content\images\project-7.jpg" />
+    <Content Include="Content\images\project-8.jpg" />
+    <Content Include="Content\images\project-9.jpg" />
+    <Content Include="Content\images\school.jpg" />
+    <Content Include="Content\images\staff-1.jpg" />
+    <Content Include="Content\images\staff-2.jpg" />
+    <Content Include="Content\images\staff-3.jpg" />
+    <Content Include="Content\images\work_1.png" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\google_map.js" />
+    <Content Include="Content\js\jquery.countTo.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.flexslider-min.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.stellar.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\magnific-popup-options.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\modernizr-2.6.2.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\simplyCountdown.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="_Archive\contact.html" />
+    <Content Include="_Archive\courses.html" />
+    <Content Include="_Archive\css\animate.css" />
+    <Content Include="_Archive\css\bootstrap.css" />
+    <Content Include="_Archive\css\flexslider.css" />
+    <Content Include="_Archive\css\icomoon.css" />
+    <Content Include="_Archive\css\magnific-popup.css" />
+    <Content Include="_Archive\css\owl.carousel.min.css" />
+    <Content Include="_Archive\css\owl.theme.default.min.css" />
+    <Content Include="_Archive\css\pricing.css" />
+    <Content Include="_Archive\css\style.css" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.svg" />
+    <Content Include="_Archive\images\img_bg_1.jpg" />
+    <Content Include="_Archive\images\img_bg_2.jpg" />
+    <Content Include="_Archive\images\img_bg_3.jpg" />
+    <Content Include="_Archive\images\img_bg_4.jpg" />
+    <Content Include="_Archive\images\loader.gif" />
+    <Content Include="_Archive\images\loc.png" />
+    <Content Include="_Archive\images\person1.jpg" />
+    <Content Include="_Archive\images\person2.jpg" />
+    <Content Include="_Archive\images\person3.jpg" />
+    <Content Include="_Archive\images\project-1.jpg" />
+    <Content Include="_Archive\images\project-2.jpg" />
+    <Content Include="_Archive\images\project-3.jpg" />
+    <Content Include="_Archive\images\project-4.jpg" />
+    <Content Include="_Archive\images\project-5.jpg" />
+    <Content Include="_Archive\images\project-6.jpg" />
+    <Content Include="_Archive\images\project-7.jpg" />
+    <Content Include="_Archive\images\project-8.jpg" />
+    <Content Include="_Archive\images\project-9.jpg" />
+    <Content Include="_Archive\images\school.jpg" />
+    <Content Include="_Archive\images\staff-1.jpg" />
+    <Content Include="_Archive\images\staff-2.jpg" />
+    <Content Include="_Archive\images\staff-3.jpg" />
+    <Content Include="_Archive\images\work_1.png" />
+    <Content Include="_Archive\index.html" />
+    <Content Include="_Archive\js\bootstrap.min.js" />
+    <Content Include="_Archive\js\google_map.js" />
+    <Content Include="_Archive\js\jquery.countTo.js" />
+    <Content Include="_Archive\js\jquery.easing.1.3.js" />
+    <Content Include="_Archive\js\jquery.flexslider-min.js" />
+    <Content Include="_Archive\js\jquery.magnific-popup.min.js" />
+    <Content Include="_Archive\js\jquery.min.js" />
+    <Content Include="_Archive\js\jquery.stellar.min.js" />
+    <Content Include="_Archive\js\jquery.waypoints.min.js" />
+    <Content Include="_Archive\js\magnific-popup-options.js" />
+    <Content Include="_Archive\js\main.js" />
+    <Content Include="_Archive\js\modernizr-2.6.2.min.js" />
+    <Content Include="_Archive\js\owl.carousel.min.js" />
+    <Content Include="_Archive\js\respond.min.js" />
+    <Content Include="_Archive\js\simplyCountdown.js" />
+    <Content Include="_Archive\pricing.html" />
+    <Content Include="_Archive\teacher.html" />
+    <Content Include="Content\css\.DS_Store" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\style.css.map" />
+    <Content Include="Content\fonts\.DS_Store" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\icomoon\.DS_Store" />
+    <Content Include="Content\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\images\.DS_Store" />
+    <Content Include="Content\js\.DS_Store" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -206,7 +320,9 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -251,6 +367,21 @@
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="_Archive\css\.DS_Store" />
+    <Content Include="_Archive\css\bootstrap.css.map" />
+    <Content Include="_Archive\css\style.css.map" />
+    <Content Include="_Archive\fonts\.DS_Store" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="_Archive\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="_Archive\fonts\icomoon\.DS_Store" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.eot" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.ttf" />
+    <Content Include="_Archive\fonts\icomoon\icomoon.woff" />
+    <Content Include="_Archive\images\.DS_Store" />
+    <Content Include="_Archive\js\.DS_Store" />
+    <Content Include="Views\Shared\_OriginalLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,13 +391,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\StoreFront\StoreFront.DATA.EF\StoreFrontV2.DATA.EF.csproj">
+      <Project>{ffcf6ce0-0bbe-4d2c-8ff2-9e4b1a38df2a}</Project>
+      <Name>StoreFrontV2.DATA.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
