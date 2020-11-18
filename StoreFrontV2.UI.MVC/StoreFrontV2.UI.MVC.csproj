@@ -396,8 +396,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\StoreFront\StoreFront.DATA.EF\StoreFrontV2.DATA.EF.csproj">
-      <Project>{ffcf6ce0-0bbe-4d2c-8ff2-9e4b1a38df2a}</Project>
+    <ProjectReference Include="..\StoreFrontV2.DATA.EF\StoreFrontV2.DATA.EF.csproj">
+      <Project>{5912287d-bcac-4c56-bd2f-71ad1500d9ac}</Project>
       <Name>StoreFrontV2.DATA.EF</Name>
     </ProjectReference>
   </ItemGroup>

@@ -92,8 +92,9 @@
                                 <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
                                 <li><a href="@Url.Action("About", "Home")">About</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                                <li class="btn-cta"><a href="#"><span>Login</span></a></li>
-                                <li class="btn-cta"><a href="#"><span>Create a Course</span></a></li>
+                                <li>
+                                    @if (Session["cart"] != null && )
+                                </li>
                             </ul>
                         </div>
                     </div>
