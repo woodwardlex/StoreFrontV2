@@ -93,7 +93,14 @@
                                 <li><a href="@Url.Action("About", "Home")">About</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
                                 <li>
-                                    @if (Session["cart"] != null && )
+                                    @if (Session["cart"] != null && ((Dictionary<int, StoreFrontV2.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0)
+                                    {
+                                        <a class="dropdown-item" href="/ShoppingCart/Index">Cart<i class="fa fa-shopping-cart"></i></a>
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Cart", "Index", "ShoppingCart")
+                                    }
                                 </li>
                             </ul>
                         </div>

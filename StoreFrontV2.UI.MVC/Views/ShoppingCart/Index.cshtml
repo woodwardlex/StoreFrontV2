@@ -1,0 +1,70 @@
+﻿@model Dictionary<int, StoreFrontV2.UI.MVC.Models.CartItemViewModel>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+
+    decimal? cartTotal = 0;
+    int totalCountOfItems = 0;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-info" })
+</p>
+
+@if (Model.Count == 0)
+{
+    <p class="alert alert-warning">@ViewBag.Message</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.Hidden("productID", item.Value.Product.ProductName)
+                        @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control", @style = "max-width: 50px; display: inline;" })
+                        <input type="submit" value="Update Quantity" class="btn btn-info" />
+                    }
+                    @{ 
+                        totalCountOfItems += item.Value.Qty;
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "Products", new RouteValueDictionary(new { id = item.Value.Product.ProductID }))">
+                        @item.Value.Product.ProductName
+                    </a>
+                </td>
+                <td>
+                    @string.Format($"{item.Value.Product.Price:c}")
+                </td>
+                <td>
+                    @{
+                        decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+                        cartTotal += lineTotal;
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Remove from Cart", "RemoveFromCart", new { id = item.Value.Product.ProductID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p class="alert alert-success text-center" style="font-size: 1.25em">
+        There are @totalCountOfItems intem(s) in your cart.
+        Your total before taxes and shipping is @string.Format($"{cartTotal:c}")
+    </p>
+}
