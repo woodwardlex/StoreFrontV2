@@ -7,15 +7,13 @@
     int totalCountOfItems = 0;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-info" })
-</p>
+@Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-info" })
 
-@if (Model.Count == 0)
+@if (ViewBag.Message != null)
 {
-    <p class="alert alert-warning">@ViewBag.Message</p>
+    <h3 style="text-align:center;color:orange">@ViewBag.Message</h3>
 }
 else
 {
@@ -34,11 +32,10 @@ else
                 <td>
                     @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
                     {
-                        @Html.Hidden("productID", item.Value.Product.ProductName)
                         @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control", @style = "max-width: 50px; display: inline;" })
                         <input type="submit" value="Update Quantity" class="btn btn-info" />
                     }
-                    @{ 
+                    @{
                         totalCountOfItems += item.Value.Qty;
                     }
                 </td>

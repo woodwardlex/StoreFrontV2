@@ -7,6 +7,54 @@ using System.Threading.Tasks;
 
 namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
 {
+    #region Product Metadata
+    public class ProductMetadata
+    {
+        //public int ProductID { get; set; }
+
+        [Display(Name = "Product")]
+        [Required(ErrorMessage = "* Product name is required")]
+        [StringLength(50, ErrorMessage = "* Product name must be 50 characters or less")]
+        public string ProductName { get; set; }
+
+        [Required(ErrorMessage = "* Description is required")]
+        [StringLength(100, ErrorMessage = "* Description must be 100 characters or less")]
+        public string Description { get; set; }
+
+        [Display(Name = "Category ID")]
+        [Required(ErrorMessage = "* Category ID is required")]
+        public int CategoryID { get; set; }
+
+        [Display(Name = "Status")]
+        [Required(ErrorMessage = "* Status is required")]
+        public int ProdStatusID { get; set; }
+
+        [Display(Name = "Units Sold")]
+        [Required(ErrorMessage = "* Units Sold is required")]
+        [Range(0, int.MaxValue, ErrorMessage = "* Units Sold must be greater than zero")]
+        public int UnitsSold { get; set; }
+
+        [Required(ErrorMessage = "* Price is required")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        public decimal Price { get; set; }
+
+        [Display(Name = "Shipping ID")]
+        [Required(ErrorMessage = "* Shipping ID is required")]
+        public int ShippingID { get; set; }
+
+        [Display(Name = "Department ID")]
+        [Required(ErrorMessage = "* Department ID is required")]
+        public int DeptID { get; set; }
+
+        [Display(Name = "Employee ID")]
+        [Required(ErrorMessage = "* Employee ID is required")]
+        public int EmployeeID { get; set; }
+    }
+
+    [MetadataType(typeof(ProductMetadata))]
+    public partial class Product { }
+    #endregion
+
     #region Category Metadata
     public class CategoryMetadata
     {
@@ -64,54 +112,6 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
 
     [MetadataType(typeof(EmployeeMetadata))]
     public partial class Employee { }
-    #endregion
-
-    #region Product Metadata
-    public class ProductMetadata
-    {
-        //public int ProductID { get; set; }
-
-        [Display(Name = "Product")]
-        [Required(ErrorMessage = "* Product name is required")]
-        [StringLength(50, ErrorMessage = "* Product name must be 50 characters or less")]
-        public string ProductName { get; set; }
-
-        [Required(ErrorMessage = "* Description is required")]
-        [StringLength(100, ErrorMessage = "* Description must be 100 characters or less")]
-        public string Description { get; set; }
-
-        [Display(Name = "Category ID")]
-        [Required(ErrorMessage = "* Category ID is required")]
-        public int CategoryID { get; set; }
-
-        [Display(Name = "Status")]
-        [Required(ErrorMessage = "* Status is required")]
-        public int ProdStatusID { get; set; }
-
-        [Display(Name = "Units Sold")]
-        [Required(ErrorMessage = "* Units Sold is required")]
-        [Range(0, int.MaxValue, ErrorMessage = "* Units Sold must be greater than zero")]
-        public int UnitsSold { get; set; }
-
-        [Required(ErrorMessage = "* Price is required")]
-        [DisplayFormat(DataFormatString = "{0:c}")]
-        public decimal Price { get; set; }
-
-        [Display(Name = "Shipping ID")]
-        [Required(ErrorMessage = "* Shipping ID is required")]
-        public int ShippingID { get; set; }
-
-        [Display(Name = "Department ID")]
-        [Required(ErrorMessage = "* Department ID is required")]
-        public int DeptID { get; set; }
-
-        [Display(Name = "Employee ID")]
-        [Required(ErrorMessage = "* Employee ID is required")]
-        public int EmployeeID { get; set; }
-    }
-
-    [MetadataType(typeof(ProductMetadata))]
-    public partial class Product { }
     #endregion
 
     #region ProductStatu Metadata

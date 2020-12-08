@@ -1,0 +1,90 @@
+﻿@model StoreFrontV2.DATA.EF.Product
+
+@{
+    ViewBag.Title = $"{Model.ProductName}";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="col-md-6">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitsSold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitsSold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DeptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DeptName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductStatu.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductStatu.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shipper.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shipper.CompanyName)
+        </dd>
+
+        <dt><label>Quantity: </label></dt>
+        <dd>
+            @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID}, FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.ProductID)
+
+                @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width:75px;display:inline;"})
+                <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

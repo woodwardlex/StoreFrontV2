@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<StoreFrontV2.DATA.EF.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
 }
 
 <h2>Index</h2>
@@ -15,9 +15,6 @@
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.UnitsSold)
         </th>
         <th>
@@ -25,12 +22,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Department.DeptName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductStatu.StatusName)
@@ -47,9 +38,6 @@
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.UnitsSold)
         </td>
         <td>
@@ -57,12 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Department.DeptName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employee.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductStatu.StatusName)
