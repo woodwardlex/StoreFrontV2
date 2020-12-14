@@ -1,0 +1,77 @@
+﻿@model StoreFrontV2.DATA.EF.department
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>department</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.departmentID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.departmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.departmentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.departmentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    $("#departmentEditForm").submit(function (e) {
+            //Format the data by serializing it(package the form data for transport to an object)
+            //The serializeArray() method creates an array of objects (name and value) by serializing form values.
+            var formData = $(this).serializeArray();
+            //Interrupt the normal submit event
+            e.preventDefault();
+            //Message the user while processing
+            $('#MessageContent').html("<div class='alert alert-info'>Please Wait...</div>");
+
+            $.ajax({
+                //Call the POST AjaxCreate action
+                url: "@Url.Action("AjaxEdit", "department")",
+                type: "POST",
+                //Serialized form data
+                data: formData,
+                //sending as json which is just a data-interchange format
+                dataType: "json",
+                //If it works, show the success message in the div located above renderBody in the _Layout
+                success: function (data) {
+                    $('#MessageContent').html("<div class='alert alert-success'>Your record was successfully updated.</div>");
+                    //Clear the form
+                    $('#departmentEditForm')[0].reset();
+                    //Add the temporary row to the table. WHen the view is refreshed, the new record will load into the
+                    //table with links in the last columns.
+                    $(function () {
+                        var row = '<tr><td>' + data.departmentName +
+                            '</td><td>' + data.City +
+                            '</td><td>' + data.State +
+                            '</td><td>' +
+                            (data.IsActive //Tenerary operator to match the checkbox
+                                ? '<input type="checkbox" disabled="disabled" checked="checked"/>'
+                                : '<input type="checkbox" disabled="disabled" />') +
+                            '</td><td>Refresh to view options</td></tr>';//Buttons not available for this new item
+                        $("#department-" + data.departmentID).replaceWith(row);//Rewrote entire line for replace. We don't use append
+                    });
+                    $("#departmentEdit").dialog('close');//Close pop-up after submit
+                },
+                error: function (e) {
+                    $('#MessageContent').html("<div class='alert alert-warning'>There was an error. Please try again.</div>");
+                }
+            });
+        });
+</script>

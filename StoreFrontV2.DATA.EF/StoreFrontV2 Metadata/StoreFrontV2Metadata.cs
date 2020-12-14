@@ -21,9 +21,9 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
         [StringLength(100, ErrorMessage = "* Description must be 100 characters or less")]
         public string Description { get; set; }
 
-        [Display(Name = "Category ID")]
-        [Required(ErrorMessage = "* Category ID is required")]
-        public int CategoryID { get; set; }
+        [Display(Name = "department ID")]
+        [Required(ErrorMessage = "* department ID is required")]
+        public int departmentID { get; set; }
 
         [Display(Name = "Status")]
         [Required(ErrorMessage = "* Status is required")]
@@ -55,19 +55,19 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
     public partial class Product { }
     #endregion
 
-    #region Category Metadata
-    public class CategoryMetadata
+    #region department Metadata
+    public class departmentMetadata
     {
-        //public int CategoryID { get; set; }
+        //public int departmentID { get; set; }
 
-        [Display(Name = "Category")]
-        [Required(ErrorMessage = "* Category is required")]
-        [StringLength(50, ErrorMessage = "* Category must be 50 characters or less")]
-        public string CategoryName { get; set; }
+        [Display(Name = "department")]
+        [Required(ErrorMessage = "* department is required")]
+        [StringLength(50, ErrorMessage = "* department must be 50 characters or less")]
+        public string departmentName { get; set; }
     }
 
-    [MetadataType(typeof(CategoryMetadata))]
-    public partial class Category { }
+    [MetadataType(typeof(departmentMetadata))]
+    public partial class department { }
     #endregion
 
     #region Department Metadata

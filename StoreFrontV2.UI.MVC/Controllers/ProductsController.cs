@@ -18,7 +18,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category).Include(p => p.Department).Include(p => p.Employee).Include(p => p.ProductStatu).Include(p => p.Shipper);
+            var products = db.Products.Include(p => p.department).Include(p => p.Department).Include(p => p.Employee).Include(p => p.ProductStatu).Include(p => p.Shipper);
             return View(products.ToList());
         }
 
@@ -97,7 +97,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
+            ViewBag.departmentID = new SelectList(db.Categories, "departmentID", "departmentName");
             ViewBag.DeptID = new SelectList(db.Departments, "DeptID", "DeptName");
             ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName");
             ViewBag.ProdStatusID = new SelectList(db.ProductStatus, "ProdStatusID", "StatusName");
@@ -110,7 +110,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,ProductName,Description,CategoryID,ProdStatusID,UnitsSold,Price,ShippingID,DeptID,EmployeeID")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,ProductName,Description,departmentID,ProdStatusID,UnitsSold,Price,ShippingID,DeptID,EmployeeID")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.departmentID = new SelectList(db.Categories, "departmentID", "departmentName", product.departmentID);
             ViewBag.DeptID = new SelectList(db.Departments, "DeptID", "DeptName", product.DeptID);
             ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", product.EmployeeID);
             ViewBag.ProdStatusID = new SelectList(db.ProductStatus, "ProdStatusID", "StatusName", product.ProdStatusID);
@@ -139,7 +139,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.departmentID = new SelectList(db.Categories, "departmentID", "departmentName", product.departmentID);
             ViewBag.DeptID = new SelectList(db.Departments, "DeptID", "DeptName", product.DeptID);
             ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", product.EmployeeID);
             ViewBag.ProdStatusID = new SelectList(db.ProductStatus, "ProdStatusID", "StatusName", product.ProdStatusID);
@@ -152,7 +152,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,Description,CategoryID,ProdStatusID,UnitsSold,Price,ShippingID,DeptID,EmployeeID")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductName,Description,departmentID,ProdStatusID,UnitsSold,Price,ShippingID,DeptID,EmployeeID")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -160,7 +160,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.departmentID = new SelectList(db.Categories, "departmentID", "departmentName", product.departmentID);
             ViewBag.DeptID = new SelectList(db.Departments, "DeptID", "DeptName", product.DeptID);
             ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", product.EmployeeID);
             ViewBag.ProdStatusID = new SelectList(db.ProductStatus, "ProdStatusID", "StatusName", product.ProdStatusID);
