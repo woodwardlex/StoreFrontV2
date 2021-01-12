@@ -1,4 +1,4 @@
-﻿@model StoreFrontV2.DATA.EF.department
+﻿@model StoreFrontV2.DATA.EF.Category
 
 
 @using (Html.BeginForm())
@@ -6,16 +6,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>department</h4>
+        <h4>Category</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.departmentID)
+        @Html.HiddenFor(model => model.CategoryID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.departmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.departmentName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.departmentName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -32,7 +32,7 @@
 </div>
 
 <script>
-    $("#departmentEditForm").submit(function (e) {
+    $("#CategoryEditForm").submit(function (e) {
             //Format the data by serializing it(package the form data for transport to an object)
             //The serializeArray() method creates an array of objects (name and value) by serializing form values.
             var formData = $(this).serializeArray();
@@ -43,7 +43,7 @@
 
             $.ajax({
                 //Call the POST AjaxCreate action
-                url: "@Url.Action("AjaxEdit", "department")",
+                url: "@Url.Action("AjaxEdit", "Category")",
                 type: "POST",
                 //Serialized form data
                 data: formData,
@@ -53,11 +53,11 @@
                 success: function (data) {
                     $('#MessageContent').html("<div class='alert alert-success'>Your record was successfully updated.</div>");
                     //Clear the form
-                    $('#departmentEditForm')[0].reset();
+                    $('#CategoryEditForm')[0].reset();
                     //Add the temporary row to the table. WHen the view is refreshed, the new record will load into the
                     //table with links in the last columns.
                     $(function () {
-                        var row = '<tr><td>' + data.departmentName +
+                        var row = '<tr><td>' + data.CategoryName +
                             '</td><td>' + data.City +
                             '</td><td>' + data.State +
                             '</td><td>' +
@@ -65,9 +65,9 @@
                                 ? '<input type="checkbox" disabled="disabled" checked="checked"/>'
                                 : '<input type="checkbox" disabled="disabled" />') +
                             '</td><td>Refresh to view options</td></tr>';//Buttons not available for this new item
-                        $("#department-" + data.departmentID).replaceWith(row);//Rewrote entire line for replace. We don't use append
+                        $("#Category-" + data.CategoryID).replaceWith(row);//Rewrote entire line for replace. We don't use append
                     });
-                    $("#departmentEdit").dialog('close');//Close pop-up after submit
+                    $("#CategoryEdit").dialog('close');//Close pop-up after submit
                 },
                 error: function (e) {
                     $('#MessageContent').html("<div class='alert alert-warning'>There was an error. Please try again.</div>");

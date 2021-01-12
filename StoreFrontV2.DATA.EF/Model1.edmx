@@ -68,12 +68,12 @@
         </EntityType>
         <EntityType Name="Categories">
           <Key>
-            <PropertyRef Name="departmentID" />
+            <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="departmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="departmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Departments">
+        <EntityType Name="Categorys">
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
@@ -97,7 +97,7 @@
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductName" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="departmentID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="ProdStatusID" Type="int" Nullable="false" />
           <Property Name="UnitsSold" Type="int" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
@@ -190,18 +190,18 @@
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
-              <PropertyRef Name="departmentID" />
+              <PropertyRef Name="CategoryID" />
             </Principal>
             <Dependent Role="Products">
-              <PropertyRef Name="departmentID" />
+              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Departments">
-          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+        <Association Name="FK_Products_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Departments">
+            <Principal Role="Categorys">
               <PropertyRef Name="DeptID" />
             </Principal>
             <Dependent Role="Products">
@@ -253,7 +253,7 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductStatus" EntityType="Self.ProductStatus" Schema="dbo" store:Type="Tables" />
@@ -279,8 +279,8 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Departments" Association="Self.FK_Products_Departments">
-            <End Role="Departments" EntitySet="Departments" />
+          <AssociationSet Name="FK_Products_Categorys" Association="Self.FK_Products_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Employees" Association="Self.FK_Products_Employees">
@@ -359,21 +359,21 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
-        <EntityType Name="department">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="departmentID" />
+            <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="departmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="departmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
         </EntityType>
-        <EntityType Name="Department">
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
           <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Departments" FromRole="Departments" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categorys" FromRole="Categorys" ToRole="Products" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -393,15 +393,15 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="departmentID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="ProdStatusID" Type="Int32" Nullable="false" />
           <Property Name="UnitsSold" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ShippingID" Type="Int32" Nullable="false" />
           <Property Name="DeptID" Type="Int32" Nullable="false" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="department" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
-          <NavigationProperty Name="Department" Relationship="Self.FK_Products_Departments" FromRole="Products" ToRole="Departments" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categorys" FromRole="Products" ToRole="Categorys" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Products_Employees" FromRole="Products" ToRole="Employees" />
           <NavigationProperty Name="ProductStatu" Relationship="Self.FK_Products_ProductStatus" FromRole="Products" ToRole="ProductStatus" />
           <NavigationProperty Name="Shipper" Relationship="Self.FK_Products_Shippers" FromRole="Products" ToRole="Shippers" />
@@ -461,22 +461,22 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_Categories">
-          <End Role="Categories" Type="Self.department" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
           <End Role="Products" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
-              <PropertyRef Name="departmentID" />
+              <PropertyRef Name="CategoryID" />
             </Principal>
             <Dependent Role="Products">
-              <PropertyRef Name="departmentID" />
+              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Departments">
-          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+        <Association Name="FK_Products_Categorys">
+          <End Role="Categorys" Type="Self.Category" Multiplicity="1" />
           <End Role="Products" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Departments">
+            <Principal Role="Categorys">
               <PropertyRef Name="DeptID" />
             </Principal>
             <Dependent Role="Products">
@@ -530,8 +530,8 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Categories" EntityType="Self.department" />
-          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Categorys" EntityType="Self.Category" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ProductStatus" EntityType="Self.ProductStatu" />
@@ -549,8 +549,8 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Departments" Association="Self.FK_Products_Departments">
-            <End Role="Departments" EntitySet="Departments" />
+          <AssociationSet Name="FK_Products_Categorys" Association="Self.FK_Products_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Employees" Association="Self.FK_Products_Employees">
@@ -632,16 +632,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="StoreFrontModel.department">
+            <EntityTypeMapping TypeName="StoreFrontModel.Category">
               <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
-                <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="StoreFrontModel.Department">
-              <MappingFragment StoreEntitySet="Departments">
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="StoreFrontModel.Category">
+              <MappingFragment StoreEntitySet="Categorys">
                 <ScalarProperty Name="DeptID" ColumnName="DeptID" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
               </MappingFragment>
@@ -664,7 +664,7 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="ProdStatusID" ColumnName="ProdStatusID" />
                 <ScalarProperty Name="UnitsSold" ColumnName="UnitsSold" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

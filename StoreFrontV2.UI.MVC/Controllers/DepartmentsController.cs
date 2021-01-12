@@ -27,90 +27,90 @@ namespace StoreFrontV2.UI.MVC.Controllers
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    Category department = db.Departments.Find(id);
-        //    if (department == null)
+        //    Category Category = db.Categorys.Find(id);
+        //    if (Category == null)
         //    {
         //        return HttpNotFound();
         //    }
-        //    return View(department);
+        //    return View(Category);
         //}
 
-        //// GET: Departments/Create
+        //// GET: Categorys/Create
         //public ActionResult Create()
         //{
         //    return View();
         //}
 
-        //// POST: Departments/Create
+        //// POST: Categorys/Create
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "DeptID,DeptName")] Department department)
+        //public ActionResult Create([Bind(Include = "DeptID,DeptName")] Category Category)
         //{
         //    if (ModelState.IsValid)
         //    {
-        //        db.Departments.Add(department);
+        //        db.Categorys.Add(Category);
         //        db.SaveChanges();
         //        return RedirectToAction("Index");
         //    }
 
-        //    return View(department);
+        //    return View(Category);
         //}
 
-        //// GET: Departments/Edit/5
+        //// GET: Categorys/Edit/5
         //public ActionResult Edit(int? id)
         //{
         //    if (id == null)
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    Department department = db.Departments.Find(id);
-        //    if (department == null)
+        //    Category Category = db.Categorys.Find(id);
+        //    if (Category == null)
         //    {
         //        return HttpNotFound();
         //    }
-        //    return View(department);
+        //    return View(Category);
         //}
 
-        //// POST: Departments/Edit/5
+        //// POST: Categorys/Edit/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "DeptID,DeptName")] Department department)
+        //public ActionResult Edit([Bind(Include = "DeptID,DeptName")] Category Category)
         //{
         //    if (ModelState.IsValid)
         //    {
-        //        db.Entry(department).State = EntityState.Modified;
+        //        db.Entry(Category).State = EntityState.Modified;
         //        db.SaveChanges();
         //        return RedirectToAction("Index");
         //    }
-        //    return View(department);
+        //    return View(Category);
         //}
 
-        //// GET: Departments/Delete/5
+        //// GET: Categorys/Delete/5
         //public ActionResult Delete(int? id)
         //{
         //    if (id == null)
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    Department department = db.Departments.Find(id);
-        //    if (department == null)
+        //    Category Category = db.Categorys.Find(id);
+        //    if (Category == null)
         //    {
         //        return HttpNotFound();
         //    }
-        //    return View(department);
+        //    return View(Category);
         //}
 
-        //// POST: Departments/Delete/5
+        //// POST: Categorys/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public ActionResult DeleteConfirmed(int id)
         //{
-        //    Department department = db.Departments.Find(id);
-        //    db.Departments.Remove(department);
+        //    Category Category = db.Categorys.Find(id);
+        //    db.Categorys.Remove(Category);
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
@@ -122,7 +122,7 @@ namespace StoreFrontV2.UI.MVC.Controllers
             db.Departments.Remove(department);
             db.SaveChanges();
 
-            string confirmMessage = string.Format("Deleted department '{0}' from the database.", department.DeptName);
+            string confirmMessage = string.Format("Deleted department '{0}' from the database.", Department.DeptName);
             return Json(new { id = id, message = confirmMessage });
         }
 
@@ -151,11 +151,11 @@ namespace StoreFrontV2.UI.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult AjaxEdit(Department department)
+        public JsonResult AjaxEdit(Category Category)
         {
-            db.Entry(department).State = EntityState.Modified;
+            db.Entry(Category).State = EntityState.Modified;
             db.SaveChanges();
-            return Json(department);
+            return Json(Category);
         }
 
         protected override void Dispose(bool disposing)

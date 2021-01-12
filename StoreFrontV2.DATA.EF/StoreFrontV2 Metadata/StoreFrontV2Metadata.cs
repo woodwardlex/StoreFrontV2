@@ -21,9 +21,9 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
         [StringLength(100, ErrorMessage = "* Description must be 100 characters or less")]
         public string Description { get; set; }
 
-        [Display(Name = "department ID")]
-        [Required(ErrorMessage = "* department ID is required")]
-        public int departmentID { get; set; }
+        [Display(Name = "Category ID")]
+        [Required(ErrorMessage = "* Category ID is required")]
+        public int CategoryID { get; set; }
 
         [Display(Name = "Status")]
         [Required(ErrorMessage = "* Status is required")]
@@ -42,8 +42,8 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
         [Required(ErrorMessage = "* Shipping ID is required")]
         public int ShippingID { get; set; }
 
-        [Display(Name = "Department ID")]
-        [Required(ErrorMessage = "* Department ID is required")]
+        [Display(Name = "Category ID")]
+        [Required(ErrorMessage = "* Category ID is required")]
         public int DeptID { get; set; }
 
         [Display(Name = "Employee ID")]
@@ -55,22 +55,22 @@ namespace StoreFrontV2.DATA.EF.StoreFrontV2_Metadata
     public partial class Product { }
     #endregion
 
-    #region department Metadata
-    public class departmentMetadata
+    #region Category Metadata
+    public class CategoryMetadata
     {
-        //public int departmentID { get; set; }
+        //public int CategoryID { get; set; }
 
-        [Display(Name = "department")]
-        [Required(ErrorMessage = "* department is required")]
-        [StringLength(50, ErrorMessage = "* department must be 50 characters or less")]
-        public string departmentName { get; set; }
+        [Display(Name = "Category")]
+        [Required(ErrorMessage = "* Category is required")]
+        [StringLength(50, ErrorMessage = "* Category must be 50 characters or less")]
+        public string CategoryName { get; set; }
     }
 
-    [MetadataType(typeof(departmentMetadata))]
-    public partial class department { }
+    [MetadataType(typeof(CategoryMetadata))]
+    public partial class Category { }
     #endregion
 
-    #region Department Metadata
+    #region Category Metadata
     public class DepartmentMetadata
     {
         //public int DeptID { get; set; }

@@ -17,7 +17,7 @@ namespace StoreFrontV2.DATA.EF
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
-        public int departmentID { get; set; }
+        public int CategoryID { get; set; }
         public int ProdStatusID { get; set; }
         public int UnitsSold { get; set; }
         public decimal Price { get; set; }
@@ -25,8 +25,8 @@ namespace StoreFrontV2.DATA.EF
         public int DeptID { get; set; }
         public int EmployeeID { get; set; }
     
-        public virtual department department { get; set; }
-        public virtual Department Department { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual Category Department { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual ProductStatu ProductStatu { get; set; }
         public virtual Shipper Shipper { get; set; }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StoreFrontV2.DATA.EF.department>
+﻿@model IEnumerable<StoreFrontV2.DATA.EF.Category>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.departmentName)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </th>
         <th></th>
     </tr>
@@ -20,12 +20,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.departmentName)
+            @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.departmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.departmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.departmentID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
         </td>
     </tr>
 }

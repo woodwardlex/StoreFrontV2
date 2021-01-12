@@ -12,15 +12,15 @@ namespace StoreFrontV2.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class department
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public department()
+        public Category()
         {
             this.Products = new HashSet<Product>();
         }
     
-        public int departmentID { get; set; }
+        public int CategoryID { get; set; }
         public string categoryName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
